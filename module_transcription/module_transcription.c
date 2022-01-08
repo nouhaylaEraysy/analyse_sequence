@@ -10,15 +10,15 @@ int main(int argc, char *argv[]) {
 
     system("setterm -bold on"); // Pour formatage d message en gras
 
-    //generation message a afficher dans le console.
+    //generation message to display in the terminator
     sprintf(message, "%sPlease entre a valid codon sequence : %s", BLU, RESET);
 
-    // Fonction de demande a l'utilisateur de charger le fichier
+    // User request function to upload file
     get_path_from_user(&filePath, message);
 
     system("setterm -bold off"); // fin fonction de bold
 
-    // récuparation la sequence depuis le fichier
+    // retrieving the sequence from the file
     extract_sequence(filePath, &sequence);
 
     while (valid_sequence(sequence) == 0) {
@@ -29,16 +29,16 @@ int main(int argc, char *argv[]) {
 
     char file_rna_name[200];
 
-    // Generation nom de fichier a entregisitrer
+    // Generation of file name to enter
     sprintf(file_rna_name, RNA_SEQUENCE_FILE, timeInMilliseconds());
 
-    // generation de RNA (en remplaçant tous les ’T’ par des ’U’)
+    // RNA generation (replacing all ’T’ by ’U’)
     rna_sequence = replaceWord(sequence, NEC_T, NEC_U);
 
-    // enregistrement de sequence arn
+    // Record RNA sequence
     int is_saved = save_sequence(rna_sequence, file_rna_name, MAX_LINE_LENGTH);
 
-    // Affichage message si le fichier est bien enregistrer
+    // Display of the message if the file is correctly saved
     if (is_saved == 1) {
         printf("%sFile is saved in %s %s", GRN, file_rna_name, RESET);
     } else {
