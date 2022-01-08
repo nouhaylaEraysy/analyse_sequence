@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall
 
-build_all: transcription_build recherche_build translation_build scoresemilaire calculescore
+build_all: transcription_build recherche_build translation_build scoresimilaire calculescore
 
 transcription:
 	 ./transcription
@@ -21,8 +21,8 @@ recherche_build: recherche_sequence.o
 translation_build: translation.o
 	$(CC)  translation.o -o translation
 
-scoresemilaire: score_semilaire.o
-	$(CC)  score_semilaire.o -o scoresemilaire
+scoresimilaire: score_similaire.o
+	$(CC)  score_similaire.o -o scoresimilaire
 
 calculescore: calcule_score.o
 	$(CC)  calcule_score.o -o calculescore
@@ -36,8 +36,8 @@ recherche_sequence.o: recherche_sequence/recherche_sequence.c  recherche_sequenc
 translation.o: traduction/translation.c  traduction/translation.h traduction/proteins.h
 	gcc $(CFLAGS) -c traduction/translation.c traduction/translation.h
 
-score_semilaire.o: score_semilaire/score_semilaire.c  score_semilaire/score_semilaire.h
-	gcc $(CFLAGS) -c score_semilaire/score_semilaire.c score_semilaire/score_semilaire.h
+score_similaire.o: score_similaire/score_similaire.c  score_similaire/score_similaire.h
+	gcc $(CFLAGS) -c score_similaire/score_similaire.c score_similaire/score_similaire.h
 
 calcule_score.o: calcule_score/calcule_score.c
 	gcc $(CFLAGS) -c calcule_score/calcule_score.c
@@ -46,4 +46,4 @@ clean:
 	rm -f *.o
 
 mrproper: clean
-	rm -f module_transciption transcription score_s recherche calculescore scoresemilaire
+	rm -f module_transciption transcription score_s recherche calculescore scoresimilaire

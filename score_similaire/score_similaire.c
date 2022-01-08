@@ -1,6 +1,6 @@
 #include "../lib/utils.h"
 #include "../lib/constants.h"
-#include "score_semilaire.h"
+#include "score_similaire.h"
 
 int main(int argc, char *argv[]) {
     char *filePath1;
