@@ -1,1 +1,11 @@
 module_transcription.o
+recherche
+recherche_sequence.o
+calculescore
+score_similaire.o
+transcription
+translation
+translation.o
+.idea
+scoresimilaire
+calcule_score.o
