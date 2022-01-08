@@ -9,15 +9,16 @@ int valid_sequence(char *sequence) {
 
     int is_valid = 1;
     int length = strlen(sequence);
-    // vérification si notre séquence est divisible sur trois
+
+    // check if our sequence is divisible on three
     if (length % 3 != 0) {
-        printf("%s Sequence invalid, length is %d, please enter a valid sequence %s\n", RED, length, RESET);
+        printf("%sSequence is invalid, length is %d, please enter a valid sequence %s\n", RED, length, RESET);
         return 0;
     }
 
-    // validation qu'elle s'agit d'ADN
+    // check if is valid DNA
     for (int i = 0; sequence[i] != '\0' && sequence[i] != '\n' &&  sequence[i] != '\r'; ++i) {
-        char c = toupper(sequence[i]);  // mettre les nucléotides en majuscules
+        char c = toupper(sequence[i]);  // Convert all to uppercase
 
         if (c != 'A' && c != 'C' && c != 'G' && c != 'T') {
             is_valid = 0;
@@ -28,7 +29,7 @@ int valid_sequence(char *sequence) {
         return 0;
     }
 
-    // validation de codon Start
+    // check if is VALID sequence 'ATG'
     if (
             (toupper(sequence[0]) == 'A') &&
             (toupper(sequence[1]) == 'T') &&
