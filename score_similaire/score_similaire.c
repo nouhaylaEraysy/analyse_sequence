@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     extract_sequence(filePath2, &sequence2);
 
 
-    // condition qui force l'égalité de taille des deux séquences
+    // condition which forces the equality of size of the two sequences
     if(strlen(sequence1) != strlen(sequence2)) {
         printf("\033[0;31m");
         printf("The sequences are not the same size");
@@ -24,16 +24,17 @@ int main(int argc, char *argv[]) {
     char score[strlen(sequence1)];
     printf("\n 0:hydrophiles , 1:hydrophobes , -:différents\r");
 
-    // boucle qui permet de calculer les scores de similarité
+    // loop which calculates the similarity scores
     for (int i = 0; i < strlen(sequence1) && sequence1[i] != '\0' && sequence1[i] != '\n'; i++) {
         char codon1[2];
         sprintf(codon1, "%.*s", 1, sequence1 + i);
         char codon2[2];
         sprintf(codon2, "%.*s", 1, sequence2 + i);
 
-        //  Si codon1 et codon2 ne sont pas vides, comparer les deux. In_array permet de vérifier si la valeur des codons sont dans les tableaux des acides aminés polaires ou apolaires
-        // si les deux sont apolaires, le score est de 1, s'ils sont polaires, le score est de 0
-        // sinon les deux sont différents, on aura un - à score
+        // If codon1 and codon2 are not empty, compare the two. In_array allows to check if the value of the codons are in the arrays of polar or nonpolar amino acids
+        // If both are non-polar, the score is 1, if they are polar, the score is 0
+        // Otherwise the two are different, we will have a - at score
+
         if (strcmp(codon1, "") != 0  && strcmp(codon2, "") != 0 ) {
             if (in_array(Ap, 9, codon1) && in_array(Ap, 9, codon2)) {
                 score[i] = '1';

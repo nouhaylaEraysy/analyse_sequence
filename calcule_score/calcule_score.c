@@ -11,7 +11,7 @@ int main() {
 
     extract_sequence(filePath1, &sequence1);
     extract_sequence(filePath2, &sequence2);
-//conditions d'égalité des taille des deux sequences
+// conditions of equality of the size of the two sequences
     if(strlen(sequence1) != strlen(sequence2)) {
         printf("\033[31m");
         printf("The sequences are not the same size");
@@ -19,15 +19,14 @@ int main() {
         return 0;
     }
 
-    //longueur des sequences utilisées plus le caractère de terminaison de cchaine
+    // length of the sequences used plus the terminator character of the string
     float  countSeq = strlen(sequence1);
 
-    // le nombre de positions identiques
+    // the number of identical positions
     float countIdent = 0;
 
     char ident[strlen(sequence1)];
-/* parcourt les deux sequences, incremente de 1 countident à chaque identité entre les deux
-séquences et écrit le caractère en question dans la séquence ident ou met - quand on pas d'identité */
+// Iterate over the two sequences, increment by 1 countident at each identity between the two sequences and write the character in question in the sequence ident or put - when there is no identity
     for(int i=0; i < countSeq && sequence1[i] != '\0'; i++) {
         if(sequence1[i] == sequence2[i]) {
             countIdent++;
@@ -37,7 +36,7 @@ séquences et écrit le caractère en question dans la séquence ident ou met - 
         }
     }
 
-    // p est le pourcentage d'identité
+    // p is the identity percentage
     float p;
     p = (countIdent / (countSeq-1))*100;
 

@@ -1,4 +1,4 @@
-//tableaux des acides aminés polaires(Po) et apolaires(Ap)
+// Tables of polar (Po) and nonpolar (Ap) amino acids
 char * Ap[11] = {
              "F",
              "A",
