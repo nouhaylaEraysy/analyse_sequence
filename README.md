@@ -32,7 +32,7 @@ Compiler par module
    + make calculescore
 
 ***E. score similaire***
-   + make scoresemilaire
+   + make scoresimilaire
 
 
 Personnaliser l'endroit d'enregistrement des fichiers générer:
