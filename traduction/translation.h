@@ -7,7 +7,6 @@
 #include <ctype.h>
 #include "../lib/utils.h"
 #include "proteins.h"
-
 int valid_rna_sequence(char *sequence) {
 
     int is_valid = 1;
