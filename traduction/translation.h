@@ -8,15 +8,23 @@
 #include "../lib/utils.h"
 #include "proteins.h"
 
+/**
+ * function validation RNA sequence
+ * @param sequence
+ * @return
+ */
 int valid_rna_sequence(char *sequence) {
 
     int is_valid = 1;
     int length = strlen(sequence);
+
+    // Check if our sequence is divisible on three
     if (length % 3 != 0) {
         printf("%sRNA sequence is invalid length sequence is %d%s", RED, length, RESET);
         return 0;
     }
 
+    // Check if is VALID RNA
     for (int i = 0; sequence[i] != '\0'  && sequence[i] != '\n' &&  sequence[i] != '\r'; ++i) {
         char c = toupper(sequence[i]);
 
@@ -25,10 +33,12 @@ int valid_rna_sequence(char *sequence) {
             break;
         }
     }
+
     if(is_valid == 0){
         return 0;
     }
 
+    // Check if our sequence is divisible on three
     if (
             (toupper(sequence[0]) == 'A') &&
             (toupper(sequence[1]) == 'U') &&
@@ -41,6 +51,13 @@ int valid_rna_sequence(char *sequence) {
     }
 }
 
+
+/**
+ * function check if our sequence is divisible on three
+ * @param sequence
+ * @param protein
+ * @return
+ */
 int translateRnaToProtein(char * sequence, char ** protein)
 {
     int numbis = 0;
@@ -49,8 +66,12 @@ int translateRnaToProtein(char * sequence, char ** protein)
 
     char *str = (char *)malloc(n*1000);
     str[0] = '\0';
+
+    // translation RNA to protiens
     while (numbis < n-2 && sequence[numbis] != '\0' && sequence[numbis] != '\n') {
         char codon[4];
+
+        // get 3 necluotides (triplet))
         sprintf(codon, "%.*s", 3, (sequence + numbis));
 
         if (in_array(ala, 4, codon)) {strcat(str, "ALA");}
@@ -65,7 +86,6 @@ int translateRnaToProtein(char * sequence, char ** protein)
         if (in_array(ile, 3, codon)) { strcat(str, "ILE");}
         if (in_array(leu, 6, codon)) { strcat(str, "LEU"); }
         if (in_array(lys, 2, codon)) {  strcat(str, "LYS");}
-
         if (in_array(met, 1, codon)) { strcat(str, "MET"); }
         if (in_array(phe, 2, codon)) { strcat(str, "PHE"); }
         if (in_array(pro, 4, codon)) { strcat(str, "PRO"); }
