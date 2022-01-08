@@ -31,7 +31,7 @@ Compiler par module
 ***D. calcule score***
    + make calculescore
 
-***E. score semilaire***
+***E. score similaire***
    + make scoresemilaire
 
 
