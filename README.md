@@ -20,19 +20,24 @@ Compiler par module
 ---------------------
 
 ***A. Module transcription***
-   + make transcription_build
+
+    make transcription_build
 
 ***B. Recherche sequence***
-   + make recherche_build
+
+    make recherche_build
 
 ***C. Traduction***
-   + make translation_build
+
+    make translation_build
 
 ***D. calcule score***
-   + make calculescore_build
+
+    make calculescore_build
 
 ***E. score similaire***
-   + make scoresimilaire_build
+
+    make scoresimilaire_build
 
 
 Personnaliser l'endroit d'enregistrement des fichiers générer:
@@ -43,18 +48,24 @@ Execution des modules
 ---------------------
 
 1 cd /chemain_de_projet
-*** Module recherche ***
-./recherche
 
-*** Module transcription ***
-./transcription
+***Module recherche***
 
-*** Module tradction ***
- ./translation
+    ./recherche
 
-***  Module calcule score ***
- ./calculescore
+***Module transcription***
 
-*** Module score similaire ***
-./scoresimilaire
+    ./transcription
+
+***Module tradction***
+
+    ./translation
+
+***Module calcule score***
+
+    ./calculescore
+
+***Module score similaire***
+
+    ./scoresimilaire
 
