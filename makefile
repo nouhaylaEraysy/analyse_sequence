@@ -1,16 +1,7 @@
 CC=gcc
 CFLAGS=-Wall
 
-build_all: transcription_build recherche_build translation_build scoresimilaire calculescore
-
-transcription:
-	 ./transcription
-
-recherche:
-	 ./recherche
-
-translation:
-	 ./translation
+build_all: transcription_build recherche_build translation_build scoresimilaire_build calculescore_build
 
 transcription_build: module_transcription.o
 	$(CC)  module_transcription.o -o transcription
@@ -21,10 +12,10 @@ recherche_build: recherche_sequence.o
 translation_build: translation.o
 	$(CC)  translation.o -o translation
 
-scoresimilaire: score_similaire.o
+scoresimilaire_build: score_similaire.o
 	$(CC)  score_similaire.o -o scoresimilaire
 
-calculescore: calcule_score.o
+calculescore_build: calcule_score.o
 	$(CC)  calcule_score.o -o calculescore
 
 module_transcription.o: module_transcription/module_transcription.c  module_transcription/module_transcription.h

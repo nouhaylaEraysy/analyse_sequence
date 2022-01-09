@@ -9,3 +9,7 @@ translation.o
 .idea
 scoresimilaire
 calcule_score.o
+recherche_sequence/recherche_sequence.h.gch
+module_transcription/module_transcription.h.gch
+traduction/translation.h.gch
+score_similaire/score_similaire.h.gch

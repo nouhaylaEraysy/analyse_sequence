@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
     char *maxSequence;
     char  message[60];
 
-    sprintf(message, "%sPlease entre a valid DNA sequence :: %s", BLU, RESET);
+    sprintf(message, "%sPlease entre a valid DNA sequence : %s", BLU, RESET);
     get_path_from_user(&filePath, message);
     extract_sequence(filePath, &dna_sequence);
 
